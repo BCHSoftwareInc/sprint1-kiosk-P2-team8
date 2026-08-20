@@ -17,6 +17,8 @@ Welcome to your team's official codebase for the current development cycle.
 * **Cyber Compliance Analysts:** Perform security checks in [`/docs/SECURITY_AUDIT.md`](./docs/SECURITY_AUDIT.md)
 
 ---
+AJM488
+artdeveloper76
 
 ## 👥 Assigned Team Roster
 * **Product Manager (PM):** @username
