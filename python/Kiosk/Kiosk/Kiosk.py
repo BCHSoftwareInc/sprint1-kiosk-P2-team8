@@ -8,7 +8,7 @@ print ("+--------------------------------------------+")
 print ("|            Apex entertainment pass         |")
 print ("|--------------------------------------------|")
 print ("| ATTENDEE : "+(name).ljust(32)+"|")
-
+print ("| Email : "+(email).ljust(35)+"|")
 
 
 
