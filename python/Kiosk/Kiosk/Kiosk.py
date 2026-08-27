@@ -1,12 +1,9 @@
 print ("What is your name?")
 name=input()
-print (name)
 print ("What is your email?")
 email=input()
-print (email)
 print ("What is your organization?")
 Organization=input()
-print (Organization)
 print ("What is your access level?")
 Aclevel=input() 
 prov="BCH SOFTWARE TERMINAL SYSTEM"
