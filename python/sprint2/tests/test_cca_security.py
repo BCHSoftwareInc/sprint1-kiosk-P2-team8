@@ -27,51 +27,51 @@ def test_c2_tall_kid_without_guardian_is_denied():
 def test_c3_short_teenager_is_denied():
     # The other half of the AND/OR trap
     # TODO (C3): ticket "PATRON", height 45, age 15, guardian False  ->  expect "DENIED_TOO_SHORT"
-    pytest.skip("TODO - write this test")
+    assert check_entry("PATRON", 45, 15, False) == "DENIED_TOO_SHORT"
 
 def test_c4_guardian_cannot_override_height():
     # TODO (C4): ticket "PATRON", height 40, age 8, guardian True  ->  expect "DENIED_TOO_SHORT"
-    pytest.skip("TODO - write this test")
+    assert check_entry("PATRON", 40, 8, True) == "DENIED_TOO_SHORT"
 
 def test_c5_unauthorized_with_guardian_still_denied():
     # TODO (C5): ticket "UNAUTHORIZED", height 60, age 30, guardian True  ->  expect "DENIED_NO_TICKET"
-    pytest.skip("TODO - write this test")
+    assert check_entry("UNAUTHORIZED", 60, 30, True) == "DENIED_NO_TICKET"
 
 
 # ---------- Bad or tampered ticket data ----------
 def test_c6_blank_ticket_is_denied():
     # TODO (C6): ticket "", height 60, age 30, guardian False  ->  expect "DENIED_NO_TICKET"
-    pytest.skip("TODO - write this test")
+    assert check_entry("", 60, 30, False) == "DENIED_NO_TICKET"
 
 def test_c7_missing_ticket_is_denied():
     # TODO (C7): ticket None, height 60, age 30, guardian False  ->  expect "DENIED_NO_TICKET"
-    pytest.skip("TODO - write this test")
+    assert check_entry(None, 60, 30, False) == "DENIED_NO_TICKET"
 
 def test_c8_lowercase_ticket_is_not_a_real_code():
     # TODO (C8): ticket "vip", height 60, age 30, guardian False  ->  expect "DENIED_NO_TICKET"
-    pytest.skip("TODO - write this test")
+    assert check_entry("vip", 60, 30, False) == "DENIED_NO_TICKET"
 
 
 # ---------- Impossible measurements ----------
 def test_c9_negative_height_is_invalid():
     # TODO (C9): ticket "PATRON", height -5, age 30, guardian False  ->  expect "DENIED_INVALID"
-    pytest.skip("TODO - write this test")
+    assert check_entry("PATRON", -5, 30, False) == "DENIED_INVALID"
 
 def test_c10_zero_height_is_invalid():
     # TODO (C10): ticket "PATRON", height 0, age 30, guardian False  ->  expect "DENIED_INVALID"
-    pytest.skip("TODO - write this test")
+    assert check_entry("PATRON", 0, 30, False) == "DENIED_INVALID"
 
 def test_c11_giant_height_is_invalid():
     # TODO (C11): ticket "PATRON", height 500, age 30, guardian False  ->  expect "DENIED_INVALID"
-    pytest.skip("TODO - write this test")
+    assert check_entry("PATRON", 500, 30, False) == "DENIED_INVALID"
 
 def test_c12_negative_age_is_invalid():
     # TODO (C12): ticket "PATRON", height 60, age -1, guardian False  ->  expect "DENIED_INVALID"
-    pytest.skip("TODO - write this test")
+    assert check_entry("PATRON", 60, -1, False) == "DENIED_INVALID"
 
 def test_c13_impossible_age_is_invalid():
     # TODO (C13): ticket "PATRON", height 60, age 999, guardian False  ->  expect "DENIED_INVALID"
-    pytest.skip("TODO - write this test")
+    assert check_entry("PATRON", 60, 999, False) == "DENIED_INVALID"
 
 # ---------- Analytics integrity (DAY 2 - uses your team's real gate) ----------
 def test_c14_invalid_scan_counts_as_denied_not_granted():
