@@ -57,7 +57,10 @@ def test_q10_vip_child_with_guardian_gets_vip_lane():
 def test_q11_new_gate_starts_at_zero():
     # TODO (Q11): make a TurnstileGate(), then assert granted_count, denied_count
     #             and total_scans() are all 0
-    pytest.skip("TODO - write this test")
+    gate = TurnstileGate()
+    assert gate.granted_count == 0
+    assert gate.denied_count == 0
+    assert gate.total_scans() == 0
 
 def test_q12_counters_after_two_grants_and_one_deny():
     gate = TurnstileGate()
@@ -65,4 +68,6 @@ def test_q12_counters_after_two_grants_and_one_deny():
     gate.scan("VIP", 60, 30, False)      # granted
     gate.scan("PATRON", 40, 30, False)   # denied
     # TODO (Q12): assert granted_count is 2, denied_count is 1, total_scans() is 3
-    pytest.skip("TODO - write this test")
+    assert gate.granted_count == 2
+    assert gate.denied_count == 1
+    assert gate.total_scans() == 3
