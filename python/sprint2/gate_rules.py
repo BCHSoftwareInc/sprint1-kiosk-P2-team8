@@ -41,7 +41,7 @@ def check_entry(ticket_type, height_in, age, has_guardian):
      if age < MIN_SOLO_AGE and has_guardian == False: 
         return "DENIED_NEEDS_GUARDIAN"
     # TODO Rule 5: if age < MIN_SOLO_AGE -> return "GRANTED_VIP", otherwise return "GRANTED"
-     if age < MIN_SOLO_AGE:
+     if age < MIN_SOLO_AGE and VALID_TICKETS == "VIP":
         return "GRANTED_VIP"
      else: 
          return "GRANTED"
