@@ -45,7 +45,7 @@ def test_q7_vip_normal_rider_gets_vip_lane():
 
 def test_q8_unauthorized_is_denied():
     # TODO (Q8): ticket "UNAUTHORIZED", height 60, age 30, guardian False  ->  expect ??? (look it up in the Rules table)
-    assert check_entry("UNAUTHORIZED", 60, 30, False) == "DENIED"
+    assert check_entry("UNAUTHORIZED", 60, 30, False) == "DENIED_NO_TICKET"
 def test_q9_top_of_valid_range_is_granted():
     # TODO (Q9): ticket "PATRON", height 96, age 120, guardian False  ->  expect ??? (look it up in the Rules table)
     assert check_entry("PATRON", 96, 120, False) == "GRANTED"
