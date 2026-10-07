@@ -26,19 +26,24 @@ def check_entry(ticket_type, height_in, age, has_guardian):
     # Check the rules IN THIS ORDER. The first rule that matches wins - return right away.
 
     # TODO Rule 1: if ticket_type is not one of VALID_TICKETS -> return "DENIED_NO_TICKET"
-
+     if ticket_type not in VALID_TICKETS:
+        return "DENIED_NO_TICKET"
     # TODO Rule 2: if height_in <= 0, or height_in > MAX_HEIGHT_IN,
-    #              or age < 0, or age > MAX_AGE           -> return "DENIED_INVALID"
+    #              or age < 0, or age > MAX_AGE         
+    #                return "DENIED_INVALID"
+          -> return "DENIED_INVALID"
 #    if height_in <= 0 or height_in >= MAX_HEIGHT_IN
     # TODO Rule 3: if height_in < MIN_HEIGHT_IN            -> return "DENIED_TOO_SHORT"
     #              (VIPs are NOT exempt - this is a physical safety rule)
-
+     elif height_in < MIN_HEIGHT_IN:
+        return "DENIED_TOO_SHORT"
+        
+    if_height_in < MIN_HEIGHT_IN:
     # TODO Rule 4: if age < MIN_SOLO_AGE AND there is no guardian -> return "DENIED_NEEDS_GUARDIAN"
-
+     elif age < MIN_SOLO_AGE and not has_guardian:
+        return "DENIED_NEEDS_GUARDIAN"
     # TODO Rule 5: if ticket_type is "VIP" -> return "GRANTED_VIP", otherwise return "GRANTED"
+    def is_granted(result_code):
+    return result_code.starts with("GRANTED")
 
-    return "TODO"
-
-
-def is_granted(result_code):
-    return result_code.startswith("GRANTED")
+ 
