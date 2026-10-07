@@ -46,4 +46,6 @@ def check_entry(ticket_type, height_in, age, has_guardian):
      else: 
          return "GRANTED"
 
+def is_granted(result_code):
+    return result_code.startswith("GRANTED")
  
